@@ -1,7 +1,7 @@
 {
   "name": "meanauthapp",
   "version": "1.0.0",
-  "description": "MEAN stack authentication app",
+  "description": "MEAN stack To Do List App w authentication",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,13 +9,13 @@
   },
   "dependencies":{
     "express":"*",
-    "mongoose":"*",
+    "mongoose":"*", //•	Mongoose is going to be our object document mapper to work with Mongo DB
     "bcryptjs":"*",
     "cors":"*",
-    "jsonwebtoken":"*",
+    "jsonwebtoken":"*",//•	Jason Web Token can generate GWT token to have authentication for specific routes 
     "body-parser":"*",
     "passport":"*",
-    "passport-jwt":"*"
+    "passport-jwt":"*"//•	create a login strategy that uses web tokens  
   },
   "author": "Marcia Luna",
   "license": "ISC"
