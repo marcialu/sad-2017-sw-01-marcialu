@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongojs = require('mongojs');
-var db = mongojs('mongodb://brad:brad@ds047666.mlab.com:47666/mytasklist_brad', ['tasks']);
+
 
 // Get All Tasks
 router.get('/tasks', function (req, res, next) {
@@ -40,5 +40,16 @@ router.post('/task', function (req, res, next) {
         });
     }
 });
+
+// Delete Task
+router.delete('/task/:id', function (req, res, next) {
+    db.tasks.remove({ _id: mongojs.ObjectId(req.params.id) }, function (err, task) {
+        if (err) {
+            res.send(err);
+        }
+        res.json(task);
+    });
+});
+
 
 module.exports = router;
