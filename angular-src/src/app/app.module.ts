@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import {FormsModule} from '@angular/forms';
+import {AppComponent} from './app.component';
+import {TasksComponent} from './components/tasks/tasks.component';
+
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -33,6 +37,7 @@ const appRoutes: Routes = [
         RegisterComponent,
         HomeComponent,
         DashboardComponent,
+        TasksComponent,
         ProfileComponent
     ],
     imports: [
