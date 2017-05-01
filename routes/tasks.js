@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongojs = require('mongojs');
-
+var db = mongojs('mongodb://mar:mar@ds111718.mlab.com:11718/mytasklis', ['tasks']);
 
 // Get All Tasks
 router.get('/tasks', function (req, res, next) {
@@ -50,6 +50,7 @@ router.delete('/task/:id', function (req, res, next) {
         res.json(task);
     });
 });
+
 // Update Task
 router.put('/task/:id', function (req, res, next) {
     var task = req.body;
@@ -69,7 +70,11 @@ router.put('/task/:id', function (req, res, next) {
             "error": "Bad Data"
         });
     } else {
-        
+        db.tasks.update({ _id: mongojs.ObjectId(req.params.id) }, updTask, {}, function (err, task) {
+            if (err) {
+                res.send(err);
+            }
+            res.json(task);
         });
     }
 });
